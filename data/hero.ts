@@ -4,7 +4,7 @@ export const HERO_DATA = {
   title: "Building interactive & immersive digital experiences.",
 
   introPrefix:
-    "I'm Himanshu — crafting smooth, intuitive, and scalable digital products using modern web technologies.",
+    "I'm Himanshu Gupta — crafting smooth and scalable digital products using modern web technologies.",
 
   words: [
     "MERN Stack",

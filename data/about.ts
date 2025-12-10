@@ -2,7 +2,7 @@ export const ABOUT_DATA = {
   heading: "About Me",
 
   bio: `
-    I’m Himanshu — a full-stack developer passionate about crafting smooth, intuitive 
+    I’m Himanshu Gupta — a full-stack developer passionate about crafting smooth, intuitive 
     and visually refined web experiences. I focus on clean architecture, meaningful 
     motion, UI clarity, and building products that feel modern and immersive.
   `,

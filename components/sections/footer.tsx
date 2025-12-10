@@ -10,7 +10,7 @@ export default function Footer() {
 
         {/* Branding */}
         <h3 className="text-xl font-semibold tracking-tight">
-          Himanshu <span className="text-primary">• Developer</span>
+          Himanshu Gupta <span className="text-primary">• Developer</span>
         </h3>
 
         {/* Navigation */}
@@ -36,7 +36,7 @@ export default function Footer() {
       {/* Bottom Text */}
       <div className="text-center mt-10">
         <p className="text-xs text-muted-foreground/80 tracking-wide">
-          © {new Date().getFullYear()} Himanshu — Crafted with precision & passion.
+          © {new Date().getFullYear()} Himanshu Gupta — Crafted with precision & passion.
         </p>
       </div>
     </footer>
