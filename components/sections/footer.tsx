@@ -1,5 +1,7 @@
-import { Github, Linkedin, Mail } from "lucide-react"
-import { motion } from "framer-motion"
+"use client";
+
+import { Github, Linkedin, Mail } from "lucide-react";
+import type { ReactNode } from "react";
 
 export default function Footer() {
   return (
@@ -24,11 +26,17 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className="flex gap-4 mt-2">
-          <Social href="https://github.com/HimanshuGupta586" icon={<Github size={18} />} />
-          <Social href="https://linkedin.com/in/himanshugupta586" icon={<Linkedin size={18} />} />
-          <Social 
+          <Social
+            href="https://github.com/HimanshuGupta586"
+            icon={<Github size={18} />}
+          />
+          <Social
+            href="https://linkedin.com/in/himanshugupta586"
+            icon={<Linkedin size={18} />}
+          />
+          <Social
             href="mailto:programmerhg001@email.com"
-            icon={<Mail size={18} />} 
+            icon={<Mail size={18} />}
           />
         </div>
       </div>
@@ -40,45 +48,52 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }
 
 /* ----------------------------- */
 /* Mini Components */
 /* ----------------------------- */
 
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
   return (
     <a
       href={href}
-      className="
-        hover:text-primary transition-colors 
-        font-medium
-      "
+      className="font-medium transition-colors hover:text-primary"
     >
       {children}
     </a>
-  )
+  );
 }
 
-function Social({ href, icon }: { href: string; icon: any }) {
+function Social({
+  href,
+  icon,
+}: {
+  href: string;
+  icon: ReactNode;
+}) {
   return (
-    <motion.a
+    <a
       href={href}
       target="_blank"
-      whileHover={{
-        scale: 1.12,
-        transition: { duration: 0.12 }
-      }}
-      whileTap={{ scale: 0.94 }}
+      rel="noopener noreferrer"
       className="
         p-2 rounded-full border border-border
-        hover:border-primary/70 hover:text-primary
-        transition-all duration-200
         flex items-center justify-center
+        transition-all duration-200
+        hover:border-primary/70 hover:text-primary
+        hover:scale-110
+        active:scale-95
       "
     >
       {icon}
-    </motion.a>
-  )
+    </a>
+  );
 }

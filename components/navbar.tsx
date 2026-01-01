@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react"
 import ModeToggle from "@/components/themeToggle"
-import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
@@ -25,7 +24,8 @@ export default function Navbar() {
   // track section visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
+      entries =>
+        entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
       { threshold: 0.4 }
     )
 
@@ -47,7 +47,6 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-30 backdrop-blur-xl 
                          border-b border-border bg-background/70">
-
         <nav className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
 
           {/* Logo */}
@@ -61,16 +60,14 @@ export default function Navbar() {
               <button
                 key={s.id}
                 onClick={() => scrollTo(s.id)}
-                className={`relative px-2 py-1 font-medium transition-colors 
-                  ${active === s.id ? "text-primary" : "text-muted-foreground"} 
+                className={`relative px-2 py-1 font-medium transition-colors
+                  ${active === s.id ? "text-primary" : "text-muted-foreground"}
                   hover:text-primary cursor-pointer`}
               >
                 {s.label}
 
                 {active === s.id && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  <span
                     className="absolute left-0 right-0 -bottom-1 h-0.5 
                                bg-primary rounded-full"
                   />
@@ -92,50 +89,38 @@ export default function Navbar() {
       </header>
 
       {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm overflow-hidden"
+      {open && (
+        <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm">
+
+          {/* Drawer Panel */}
+          <div
+            className="absolute right-0 top-0 w-64 h-full bg-background/95
+                       backdrop-blur-xl border-l border-border p-6
+                       flex flex-col shadow-xl"
           >
-            {/* Drawer Panel */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.38, ease: "easeInOut" }} // <-- NO SPRING
-              className="absolute right-0 top-0 w-64 h-full bg-background/95 
-                 backdrop-blur-xl border-l border-border p-6 flex flex-col shadow-xl"
-            >
-              <div className="flex justify-between items-center mb-10">
-                <h3 className="text-lg font-semibold">Menu</h3>
-                <button onClick={() => setOpen(false)}>
-                  <X size={22} />
+            <div className="flex justify-between items-center mb-10">
+              <h3 className="text-lg font-semibold">Menu</h3>
+              <button onClick={() => setOpen(false)}>
+                <X size={22} />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-5">
+              {sections.map(s => (
+                <button
+                  key={s.id}
+                  onClick={() => scrollTo(s.id)}
+                  className={`text-left text-base font-medium transition-colors
+                    ${active === s.id ? "text-primary" : "text-muted-foreground"}
+                    hover:text-primary`}
+                >
+                  {s.label}
                 </button>
-              </div>
-
-              <div className="flex flex-col gap-5">
-                {sections.map(s => (
-                  <button
-                    key={s.id}
-                    onClick={() => scrollTo(s.id)}
-                    className={`text-left text-base font-medium transition-colors
-              ${active === s.id ? "text-primary" : "text-muted-foreground"}
-              hover:text-primary`}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }

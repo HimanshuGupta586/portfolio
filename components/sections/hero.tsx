@@ -2,23 +2,14 @@
 
 import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
-import { motion, easeOut } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
 import { HERO_DATA } from "@/data/hero";
 
-const NeuralCanvas = dynamic(() => import("@/components/3d/NeuralCanvas"), { ssr: false });
-
-// Animation presets
-const smoothFadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOut } },
-};
-
-const smoothSlide = {
-  hidden: { opacity: 0, x: 35 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: easeOut } },
-};
+const NeuralCanvas = dynamic(
+  () => import("@/components/3d/NeuralCanvas"),
+  { ssr: false }
+);
 
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
@@ -61,12 +52,7 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
 
         {/* Left Block */}
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={smoothFadeUp}
-          className="flex flex-col gap-6 text-center md:text-left"
-        >
+        <div className="flex flex-col gap-6 text-center md:text-left">
           {/* Title */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-semibold leading-tight">
             {HERO_DATA.title.split("interactive").map((part, i, arr) => (
@@ -77,7 +63,6 @@ export default function HeroSection() {
                 )}
               </span>
             ))}
-
           </h1>
 
           {/* Intro Paragraph with Typewriter */}
@@ -102,7 +87,10 @@ export default function HeroSection() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button className="rounded-full w-full sm:w-auto cursor-pointer" size="lg">
-              <a href={HERO_DATA.links.primary}  className="w-full h-full flex items-center justify-center">
+              <a
+                href={HERO_DATA.links.primary}
+                className="w-full h-full flex items-center justify-center"
+              >
                 {HERO_DATA.buttons.primary}
               </a>
             </Button>
@@ -112,24 +100,23 @@ export default function HeroSection() {
               variant="outline"
               className="rounded-full w-full sm:w-auto dark:text-white cursor-pointer"
             >
-              <a href={HERO_DATA.links.secondary} target="_blank" className="w-full h-full flex items-center justify-center">
+              <a
+                href={HERO_DATA.links.secondary}
+                target="_blank"
+                className="w-full h-full flex items-center justify-center"
+              >
                 {HERO_DATA.buttons.secondary}
               </a>
             </Button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Block — 3D Canvas */}
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={smoothSlide}
-          className="glass rounded-2xl shadow-lg overflow-hidden w-full h-[260px] sm:h-[330px] md:h-[380px] lg:h-[420px] flex items-center justify-center"
-        >
+        <div className="glass rounded-2xl shadow-lg overflow-hidden w-full h-[260px] sm:h-[330px] md:h-[380px] lg:h-[420px] flex items-center justify-center">
           <Suspense fallback={<p className="text-muted-foreground">Loading 3D…</p>}>
             <NeuralCanvas />
           </Suspense>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

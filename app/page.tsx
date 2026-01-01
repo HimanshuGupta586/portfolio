@@ -1,7 +1,6 @@
 // app/page.tsx
 "use client"
 
-import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
 import HeroSection from "@/components/sections/hero"
 import AboutSection from "@/components/sections/about"
@@ -16,12 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="min-h-screen"
-      >
+      <main className="min-h-screen">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
@@ -30,7 +24,7 @@ export default function Home() {
         <TimelineSection />
         <TestimonialsSection />
         <Footer />
-      </motion.main>
+      </main>
     </>
   )
 }

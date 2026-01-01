@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Himanshu Gupta | Full-Stack Developer",
   description:
-    "Himanshu Gupta - Full-stack developer (MERN, Next.js, Tailwind, Shadcn). Building modern, interactive and 3D-enhanced web experiences.",
+    "Himanshu Gupta - Full-stack developer (MERN, Next.js, TailwindCSS, ShadCN UI). Building modern, interactive and 3D-enhanced web experiences.",
   metadataBase: new URL("https://your-portfolio-domain.vercel.app"),
   openGraph: {
     title: "Himanshu Gupta | Full-Stack Developer",
     description:
-      "Portfolio of Himanshu Gupta, a full-stack web developer specializing in MERN, Next.js, TailwindCSS & Shadcn UI.",
+      "Portfolio of Himanshu Gupta, a full-stack web developer specializing in MERN, Next.js, TailwindCSS & ShadCN UI.",
     url: "https://your-portfolio-domain.vercel.app",
     siteName: "Himanshu Gupta's Portfolio",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Himanshu Gupta | Full-Stack Developer",
     description:
-      "Full-stack developer portfolio (MERN, Next.js, Tailwind, Shadcn).",
+      "Full-stack developer portfolio (MERN, Next.js, TailwindCSS, ShadCN UI).",
     images: ["/og-image.png"],
   },
 }
