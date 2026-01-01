@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/60 pt-14 pb-10 mt-28 px-6">
+    <footer className="border-t border-border pt-14 pb-10 mt-28 px-6">
 
       {/* Top Section */}
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
@@ -43,7 +43,7 @@ export default function Footer() {
 
       {/* Bottom Text */}
       <div className="text-center mt-10">
-        <p className="text-xs text-muted-foreground/80 tracking-wide">
+        <p className="text-xs text-muted-foreground tracking-wide">
           © {new Date().getFullYear()} Himanshu Gupta — Crafted with precision & passion.
         </p>
       </div>
@@ -65,7 +65,7 @@ function FooterLink({
   return (
     <a
       href={href}
-      className="font-medium transition-colors hover:text-primary"
+      className="font-medium transition-colors duration-200 hover:text-primary"
     >
       {children}
     </a>
@@ -87,9 +87,8 @@ function Social({
       className="
         p-2 rounded-full border border-border
         flex items-center justify-center
-        transition-all duration-200
-        hover:border-primary/70 hover:text-primary
-        hover:scale-110
+        transition-transform duration-200
+        hover:scale-105
         active:scale-95
       "
     >

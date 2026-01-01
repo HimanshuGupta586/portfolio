@@ -23,28 +23,27 @@ export default function ProjectsSection() {
 }
 
 /* --------------------------------------------- */
-/*  CLEAN PROJECT CARD (CSS ONLY)                 */
+/*  CLEAN PROJECT CARD (GLOW-FREE)                */
 /* --------------------------------------------- */
 
 function ProjectCard({ project: p }: any) {
   return (
     <div
       className="
-        relative p-6 rounded-xl border border-border bg-card shadow-sm
+        p-6 rounded-xl border border-border bg-card
         cursor-pointer select-none
-        transition-all duration-200
-        hover:scale-[1.045]
-        hover:shadow-[0_0_12px_var(--primary)]
-        active:scale-[0.97]
+        transition-transform duration-200
+        hover:scale-[1.02]
+        active:scale-[0.98]
       "
     >
       {/* Thumbnail */}
-      <div className="relative w-full h-44 rounded-xl overflow-hidden mb-4 group">
+      <div className="relative w-full h-44 rounded-xl overflow-hidden mb-4">
         <Image
           src={p.img}
           alt={p.title}
           fill
-          className="object-cover transition-transform duration-200 group-hover:scale-105"
+          className="object-cover transition-transform duration-200 hover:scale-105"
         />
       </div>
 
@@ -59,7 +58,7 @@ function ProjectCard({ project: p }: any) {
         {p.tech.map((t: string, i: number) => (
           <span
             key={i}
-            className="px-2 py-1 rounded-md bg-primary/10 text-primary"
+            className="px-2 py-1 rounded-md bg-muted text-foreground"
           >
             {t}
           </span>
@@ -77,8 +76,8 @@ function ProjectCard({ project: p }: any) {
           className="
             px-3 py-2 rounded-lg border border-border text-sm
             flex items-center gap-2
-            transition-all duration-200
-            hover:border-primary/70 hover:text-primary
+            transition-colors duration-200
+            hover:border-primary hover:text-primary
           "
         >
           <Github size={16} /> Code
@@ -93,8 +92,8 @@ function ProjectCard({ project: p }: any) {
             className="
               px-3 py-2 rounded-lg border border-border text-sm
               flex items-center gap-2
-              transition-all duration-200
-              hover:border-primary/70 hover:text-primary
+              transition-colors duration-200
+              hover:border-primary hover:text-primary
             "
           >
             <ExternalLink size={16} /> Live

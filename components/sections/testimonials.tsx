@@ -37,25 +37,15 @@ function TestimonialCard({
   return (
     <div
       className="
-        relative p-6 rounded-xl border border-border bg-card
-        shadow-sm cursor-pointer select-none
-        transition-all duration-200
-        hover:scale-[1.045]
-        hover:shadow-[0_0_8px_var(--primary)]
-        active:scale-[0.97]
+        p-6 rounded-xl border border-border bg-card
+        cursor-pointer select-none
+        transition-transform duration-200
+        hover:scale-[1.02]
+        active:scale-[0.98]
       "
     >
-      {/* Neon Top Strip */}
-      <div
-        className="
-          absolute inset-x-0 top-0 h-[3px]
-          bg-primary/60 rounded-t-2xl
-          shadow-[0_0_10px_var(--primary)]
-        "
-      />
-
       <div className="flex justify-center mb-4">
-        <MessageSquareQuote className="text-primary" size={30} />
+        <MessageSquareQuote className="text-primary" size={28} />
       </div>
 
       <p className="text-sm text-muted-foreground leading-relaxed mb-4 text-center">

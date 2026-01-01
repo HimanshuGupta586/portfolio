@@ -22,11 +22,10 @@ export default function SkillsSection() {
               key={i}
               className="
                 p-6 rounded-xl border border-border bg-card
-                shadow-sm cursor-pointer select-none
-                transition-all duration-200
-                hover:scale-[1.045]
-                hover:shadow-[0_0_8px_var(--primary)]
-                active:scale-[0.97]
+                cursor-pointer select-none
+                transition-transform duration-200
+                hover:scale-[1.02]
+                active:scale-[0.98]
               "
             >
               <div className="text-4xl text-primary mb-2">

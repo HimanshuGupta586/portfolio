@@ -1,15 +1,9 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
 import { HERO_DATA } from "@/data/hero";
-
-const NeuralCanvas = dynamic(
-  () => import("@/components/3d/NeuralCanvas"),
-  { ssr: false }
-);
 
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
@@ -49,73 +43,63 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-
-        {/* Left Block */}
-        <div className="flex flex-col gap-6 text-center md:text-left">
-          {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-semibold leading-tight">
-            {HERO_DATA.title.split("interactive").map((part, i, arr) => (
-              <span key={i}>
-                {part}
-                {i < arr.length - 1 && (
-                  <span className="text-primary font-bold">interactive</span>
-                )}
-              </span>
-            ))}
-          </h1>
-
-          {/* Intro Paragraph with Typewriter */}
-          <p className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto md:mx-0">
-            {HERO_DATA.introPrefix}{" "}
-            <span
-              className="text-primary font-medium inline-block"
-              style={{ minWidth: "260px" }}
-            >
-              <Typewriter
-                key={index}
-                words={[HERO_DATA.words[index]]}
-                cursor
-                cursorStyle="|"
-                typeSpeed={55}
-                deleteSpeed={45}
-                delaySpeed={1100}
-              />
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center flex flex-col items-center gap-6">
+        {/* Title */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-semibold leading-tight">
+          {HERO_DATA.title.split("interactive").map((part, i, arr) => (
+            <span key={i}>
+              {part}
+              {i < arr.length - 1 && (
+                <span className="text-primary font-bold">interactive</span>
+              )}
             </span>
-          </p>
+          ))}
+        </h1>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <Button className="rounded-full w-full sm:w-auto cursor-pointer" size="lg">
-              <a
-                href={HERO_DATA.links.primary}
-                className="w-full h-full flex items-center justify-center"
-              >
-                {HERO_DATA.buttons.primary}
-              </a>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full w-full sm:w-auto dark:text-white cursor-pointer"
-            >
-              <a
-                href={HERO_DATA.links.secondary}
-                target="_blank"
-                className="w-full h-full flex items-center justify-center"
-              >
-                {HERO_DATA.buttons.secondary}
-              </a>
-            </Button>
-          </div>
+        {/* Typewriter Line (SEPARATE) */}
+        <div className="text-lg sm:text-xl font-medium text-primary h-[1.6em]">
+          <Typewriter
+            key={index}
+            words={HERO_DATA.words}
+            loop
+            cursor
+            cursorStyle="|"
+            typeSpeed={60}
+            deleteSpeed={45}
+            delaySpeed={1200}
+          />
         </div>
 
-        {/* Right Block — 3D Canvas */}
-        <div className="glass rounded-2xl shadow-lg overflow-hidden w-full h-[260px] sm:h-[330px] md:h-[380px] lg:h-[420px] flex items-center justify-center">
-          <Suspense fallback={<p className="text-muted-foreground">Loading 3D…</p>}>
-            <NeuralCanvas />
-          </Suspense>
+        {/* Supporting Paragraph */}
+        <p className="text-sm sm:text-base text-muted-foreground max-w-xl">
+          {HERO_DATA.introPrefix}
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-2">
+          <Button size="lg" className="rounded-full w-full sm:w-auto">
+            <a
+              href={HERO_DATA.links.primary}
+              className="w-full h-full flex items-center justify-center"
+            >
+              {HERO_DATA.buttons.primary}
+            </a>
+          </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            className="rounded-full w-full sm:w-auto dark:text-white"
+          >
+            <a
+              href={HERO_DATA.links.secondary}
+              target="_blank"
+              className="w-full h-full flex items-center justify-center"
+            >
+              {HERO_DATA.buttons.secondary}
+            </a>
+          </Button>
         </div>
       </div>
     </section>

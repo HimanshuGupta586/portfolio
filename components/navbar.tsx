@@ -45,8 +45,9 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-30 backdrop-blur-xl 
-                         border-b border-border bg-background/70">
+      {/* Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-30 
+                         border-b border-border bg-background">
         <nav className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
 
           {/* Logo */}
@@ -62,7 +63,7 @@ export default function Navbar() {
                 onClick={() => scrollTo(s.id)}
                 className={`relative px-2 py-1 font-medium transition-colors
                   ${active === s.id ? "text-primary" : "text-muted-foreground"}
-                  hover:text-primary cursor-pointer`}
+                  hover:text-foreground`}
               >
                 {s.label}
 
@@ -88,15 +89,14 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Menu Overlay */}
       {open && (
-        <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm">
+        <div className="fixed inset-0 z-40 bg-black/40">
 
           {/* Drawer Panel */}
           <div
-            className="absolute right-0 top-0 w-64 h-full bg-background/95
-                       backdrop-blur-xl border-l border-border p-6
-                       flex flex-col shadow-xl"
+            className="absolute right-0 top-0 w-64 h-full bg-background
+                       border-l border-border p-6 flex flex-col"
           >
             <div className="flex justify-between items-center mb-10">
               <h3 className="text-lg font-semibold">Menu</h3>
@@ -112,7 +112,7 @@ export default function Navbar() {
                   onClick={() => scrollTo(s.id)}
                   className={`text-left text-base font-medium transition-colors
                     ${active === s.id ? "text-primary" : "text-muted-foreground"}
-                    hover:text-primary`}
+                    hover:text-foreground`}
                 >
                   {s.label}
                 </button>

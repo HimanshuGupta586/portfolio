@@ -49,7 +49,7 @@ export default function AboutSection() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
-            <Button className="rounded-full px-6 flex items-center gap-2 cursor-pointer">
+            <Button className="rounded-full px-6 flex items-center gap-2">
               <a
                 href={ABOUT_DATA.buttons.resume.link}
                 className="w-full h-full flex items-center justify-center"
@@ -61,7 +61,7 @@ export default function AboutSection() {
 
             <Button
               variant="outline"
-              className="rounded-full dark:text-white cursor-pointer"
+              className="rounded-full dark:text-white"
             >
               <a
                 href={ABOUT_DATA.buttons.contact.link}
@@ -86,18 +86,17 @@ export default function AboutSection() {
   );
 }
 
-/* Components */
+/* ---------------- Components ---------------- */
 
 function InfoCard({ title, text }: { title: string; text: string }) {
   return (
     <div
       className="
         p-6 rounded-xl border border-border bg-card
-        shadow-sm cursor-pointer select-none
-        transition-all duration-200
-        hover:scale-[1.045]
-        hover:shadow-[0_0_8px_var(--primary)]
-        active:scale-[0.97]
+        cursor-pointer select-none
+        transition-transform duration-200
+        hover:scale-[1.02]
+        active:scale-[0.98]
       "
     >
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
@@ -110,7 +109,7 @@ function InfoCard({ title, text }: { title: string; text: string }) {
 
 function Stat({ number, label }: { number: string; label: string }) {
   return (
-    <div className="text-center transition-transform duration-150 hover:scale-110">
+    <div className="text-center">
       <p className="text-2xl font-bold">{number}</p>
       <p className="text-xs text-muted-foreground">{label}</p>
     </div>
@@ -122,13 +121,14 @@ function Social({ icon, link }: { icon: ReactNode; link: string }) {
     <a
       href={link}
       target="_blank"
+      rel="noopener noreferrer"
       className="
         p-2 rounded-md border border-border
-        transition-all duration-200
-        hover:border-primary/70 hover:text-primary
+        transition-colors duration-200
+        hover:border-primary
+        hover:text-primary
         active:scale-95
       "
-      rel="noopener noreferrer"
     >
       {icon}
     </a>

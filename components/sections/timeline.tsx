@@ -13,13 +13,11 @@ export default function TimelineSection() {
 
       <div className="relative pl-12 md:pl-16">
 
-        {/* Neon Vertical Line */}
+        {/* Vertical Line (no glow) */}
         <div
           className="
             absolute left-[22px] md:left-7 top-0 bottom-0
-            w-[3px] bg-primary/40
-            shadow-[0_0_12px_var(--primary)]
-            rounded-full
+            w-px bg-border
           "
         />
 
@@ -55,24 +53,22 @@ function TimelineCard({
     <div
       className="
         relative p-6 rounded-xl border border-border bg-card
-        shadow-sm cursor-pointer select-none
-        transition-all duration-200
-        hover:scale-[1.045]
-        hover:shadow-[0_0_8px_var(--primary)]
-        active:scale-[0.97]
+        cursor-pointer select-none
+        transition-transform duration-200
+        hover:scale-[1.02]
+        active:scale-[0.98]
       "
     >
-      {/* Neon Marker Dot */}
+      {/* Marker Dot (flat) */}
       <div
         className="
           absolute -left-[34px] top-[26px]
-          w-4 h-4 rounded-full bg-primary
-          shadow-[0_0_12px_var(--primary)]
+          w-3 h-3 rounded-full bg-primary
         "
       />
 
       {/* Year */}
-      <div className="text-primary font-extrabold text-xl mb-2 tracking-tight">
+      <div className="text-primary font-semibold text-lg mb-2 tracking-tight">
         {year}
       </div>
 
