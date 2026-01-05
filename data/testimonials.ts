@@ -7,15 +7,15 @@ export interface TestimonialItem {
 
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
   {
-    name: "Client Name",
-    text: "Amazing work — clean UI, fast development and fantastic communication."
+    name: "Client",
+    text: "Clean UI, clear communication, and fast turnaround. The project was well-structured and easy to maintain.",
   },
   {
-    name: "Developer / Collaborator",
-    text: "Great problem solver and fast learner. Strong knowledge of MERN + Next.js."
+    name: "Collaborator",
+    text: "Strong problem-solving approach and a solid understanding of full-stack development with MERN and Next.js.",
   },
   {
-    name: "Mentor / Senior",
-    text: "Himanshu writes quality code and has design sense beyond beginners."
-  }
+    name: "Mentor",
+    text: "Writes clean code, learns quickly, and pays attention to structure and fundamentals.",
+  },
 ];

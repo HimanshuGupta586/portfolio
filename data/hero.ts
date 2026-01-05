@@ -1,30 +1,28 @@
 // /data/hero.ts
 
 export const HERO_DATA = {
-  title: "Building interactive & immersive digital experiences.",
+  title: "Building reliable full-stack web applications.",
 
-  introPrefix:
-    "I'm Himanshu Gupta — crafting smooth and scalable digital products using modern web technologies.",
+  intro:
+    "I’m Himanshu Gupta, a full-stack developer and computer science student building web applications with Python and modern web technologies.",
 
   words: [
+    "Full-Stack Development",
+    "Python Development",
     "MERN Stack",
     "Next.js",
     "Data Structures & Algorithms",
-    "Python & C"
   ],
 
   buttons: {
-    primary: "View Projects",
-    secondary: "Contact Me",
-  },
-
-  links:{
-    primary: "#projects",
-    secondary: "https://www.linkedin.com/in/himanshu-g27/",
-  },
-
-  glow: {
-    topLeft: { size: 330, color: "bg-primary/30" },
-    bottomRight: { size: 310, color: "bg-accent/30" },
+    primary: {
+      label: "View Projects",
+      href: "#projects",
+    },
+    secondary: {
+      label: "Contact Me",
+      href: "https://www.linkedin.com/in/himanshu-g27/",
+      external: true,
+    },
   },
 };

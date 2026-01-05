@@ -1,22 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
 import { HERO_DATA } from "@/data/hero";
 
 export default function HeroSection() {
-  const [index, setIndex] = useState(0);
-
-  // rotate typewriter words
-  useEffect(() => {
-    const interval = setInterval(
-      () => setIndex((i) => (i + 1) % HERO_DATA.words.length),
-      2600
-    );
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -25,21 +13,12 @@ export default function HeroSection() {
       {/* Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className={`absolute -top-24 left-4 rounded-full blur-[110px] 
-                      ${HERO_DATA.glow.topLeft.color}`}
-          style={{
-            width: HERO_DATA.glow.topLeft.size,
-            height: HERO_DATA.glow.topLeft.size,
-          }}
+          className="absolute -top-24 left-4 w-[320px] h-[320px]
+                     rounded-full bg-primary/30 blur-[110px]"
         />
-
         <div
-          className={`absolute bottom-0 right-4 rounded-full blur-[110px]
-                      ${HERO_DATA.glow.bottomRight.color}`}
-          style={{
-            width: HERO_DATA.glow.bottomRight.size,
-            height: HERO_DATA.glow.bottomRight.size,
-          }}
+          className="absolute bottom-0 right-4 w-[300px] h-[300px]
+                     rounded-full bg-accent/30 blur-[110px]"
         />
       </div>
 
@@ -57,12 +36,11 @@ export default function HeroSection() {
           ))}
         </h1>
 
-        {/* Typewriter Line (SEPARATE) */}
+        {/* Typewriter */}
         <div className="text-lg sm:text-xl font-medium text-primary h-[1.6em]">
           <Typewriter
-            key={index}
             words={HERO_DATA.words}
-            loop
+            loop={0} // infinite loop
             cursor
             cursorStyle="|"
             typeSpeed={60}
@@ -71,19 +49,19 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Supporting Paragraph */}
+        {/* Intro */}
         <p className="text-sm sm:text-base text-muted-foreground max-w-xl">
-          {HERO_DATA.introPrefix}
+          {HERO_DATA.intro}
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-2">
           <Button size="lg" className="rounded-full w-full sm:w-auto">
             <a
-              href={HERO_DATA.links.primary}
+              href={HERO_DATA.buttons.primary.href}
               className="w-full h-full flex items-center justify-center"
             >
-              {HERO_DATA.buttons.primary}
+              {HERO_DATA.buttons.primary.label}
             </a>
           </Button>
 
@@ -93,11 +71,18 @@ export default function HeroSection() {
             className="rounded-full w-full sm:w-auto dark:text-white"
           >
             <a
-              href={HERO_DATA.links.secondary}
-              target="_blank"
+              href={HERO_DATA.buttons.secondary.href}
+              target={
+                HERO_DATA.buttons.secondary.external ? "_blank" : undefined
+              }
+              rel={
+                HERO_DATA.buttons.secondary.external
+                  ? "noopener noreferrer"
+                  : undefined
+              }
               className="w-full h-full flex items-center justify-center"
             >
-              {HERO_DATA.buttons.secondary}
+              {HERO_DATA.buttons.secondary.label}
             </a>
           </Button>
         </div>

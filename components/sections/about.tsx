@@ -17,28 +17,27 @@ export default function AboutSection() {
       <div className="max-w-6xl mx-auto flex flex-col gap-16">
 
         {/* Heading */}
-        <div className="flex items-center gap-4">
-          <span className="text-3xl md:text-4xl font-semibold">
+        <header className="flex items-center gap-4">
+          <h2 className="text-3xl md:text-4xl font-semibold">
             {ABOUT_DATA.heading}
-          </span>
-
-          <div className="h-[3px] w-[28%] bg-primary rounded-full" />
-        </div>
+          </h2>
+          <div className="h-[3px] w-24 bg-primary rounded-full" />
+        </header>
 
         {/* Bio */}
         <p className="max-w-3xl text-muted-foreground md:text-lg text-[0.94rem] leading-relaxed">
-          {ABOUT_DATA.bio}
+          {ABOUT_DATA.bio.trim()}
         </p>
 
         {/* Info Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-3">
           {ABOUT_DATA.infoCards.map((card, i) => (
             <InfoCard key={i} title={card.title} text={card.text} />
           ))}
         </div>
 
-        {/* Stats + Buttons + Socials */}
-        <div className="flex flex-col gap-8">
+        {/* Stats + Actions */}
+        <div className="flex flex-col gap-10">
 
           {/* Stats */}
           <div className="grid grid-cols-3 max-w-md">
@@ -52,11 +51,11 @@ export default function AboutSection() {
             <Button className="rounded-full px-6 flex items-center gap-2">
               <a
                 href={ABOUT_DATA.buttons.resume.link}
-                className="w-full h-full flex items-center justify-center"
+                className="flex items-center gap-2"
               >
                 {ABOUT_DATA.buttons.resume.label}
+                <ArrowRight size={16} />
               </a>
-              <ArrowRight size={17} />
             </Button>
 
             <Button
@@ -67,7 +66,6 @@ export default function AboutSection() {
                 href={ABOUT_DATA.buttons.contact.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full h-full flex items-center justify-center"
               >
                 {ABOUT_DATA.buttons.contact.label}
               </a>
@@ -86,20 +84,20 @@ export default function AboutSection() {
   );
 }
 
-/* ---------------- Components ---------------- */
+/* ---------------- Sub Components ---------------- */
 
 function InfoCard({ title, text }: { title: string; text: string }) {
   return (
     <div
       className="
         p-6 rounded-xl border border-border bg-card
-        cursor-pointer select-none
-        transition-transform duration-200
+        transition-all duration-200
         hover:scale-[1.02]
+        hover:shadow-md hover:shadow-primary/5
         active:scale-[0.98]
       "
     >
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed">
         {text}
       </p>
@@ -110,8 +108,8 @@ function InfoCard({ title, text }: { title: string; text: string }) {
 function Stat({ number, label }: { number: string; label: string }) {
   return (
     <div className="text-center">
-      <p className="text-2xl font-bold">{number}</p>
-      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="text-2xl font-semibold">{number}</p>
+      <p className="text-xs text-muted-foreground mt-1">{label}</p>
     </div>
   );
 }
@@ -122,11 +120,11 @@ function Social({ icon, link }: { icon: ReactNode; link: string }) {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Social link"
       className="
         p-2 rounded-md border border-border
-        transition-colors duration-200
-        hover:border-primary
-        hover:text-primary
+        transition-all duration-200
+        hover:border-primary hover:text-primary
         active:scale-95
       "
     >

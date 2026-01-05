@@ -1,4 +1,5 @@
 // /data/services.ts
+
 export interface ServiceItem {
   icon: "code" | "layers" | "globe";
   title: string;
@@ -9,16 +10,16 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     icon: "code",
     title: "Full-Stack Web Development",
-    desc: "End-to-end development using MERN & Next.js — building structured, scalable and feature-rich applications with clean code practices."
+    desc: "Building end-to-end web applications using MERN and Next.js, with a focus on clean architecture, scalability, and maintainable code."
   },
   {
     icon: "layers",
-    title: "Frontend Engineering & UI Crafting",
-    desc: "Creating modern, responsive and animation-rich interfaces with TailwindCSS, Shadcn UI and React — focused on smooth UX and clarity."
+    title: "Frontend Engineering",
+    desc: "Developing responsive and user-friendly interfaces using React, Tailwind CSS, and shadcn/ui, prioritizing clarity and usability."
   },
   {
     icon: "globe",
-    title: "Deployment, Performance & SEO",
-    desc: "Deploying apps on Vercel with optimized performance, analytics integration, SEO improvements and real-world production readiness."
+    title: "Deployment & Optimization",
+    desc: "Deploying applications on modern platforms with attention to performance, basic SEO practices, and production readiness."
   }
 ];

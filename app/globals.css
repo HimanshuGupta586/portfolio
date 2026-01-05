@@ -3,6 +3,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ================= THEME TOKENS ================= */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -35,43 +37,50 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ================= LIGHT MODE ================= */
+/* ================= LIGHT MODE (REFINED & PRIMARY FOCUS) ================= */
 
 :root {
   --radius: 0.625rem;
 
-  --background: oklch(0.98 0.01 250);
-  --foreground: oklch(0.14 0.03 260);
+  /* Base */
+  --background: oklch(0.975 0.01 250);
+  --foreground: oklch(0.15 0.03 260);
 
-  --card: oklch(0.99 0.005 250);
+  /* Surfaces */
+  --card: oklch(0.995 0.005 250);
   --card-foreground: oklch(0.18 0.03 260);
 
-  --popover: oklch(0.99 0.005 250);
+  --popover: oklch(0.995 0.005 250);
   --popover-foreground: oklch(0.18 0.03 260);
 
-  /* Primary brand blue */
-  --primary: oklch(0.64 0.18 250);
+  /* Brand */
+  --primary: oklch(0.62 0.18 250);
   --primary-foreground: oklch(0.98 0.01 250);
 
-  --secondary: oklch(0.93 0.01 255);
-  --secondary-foreground: oklch(0.24 0.03 260);
+  /* Secondary */
+  --secondary: oklch(0.92 0.015 255);
+  --secondary-foreground: oklch(0.26 0.03 260);
 
-  --muted: oklch(0.94 0.01 255);
-  --muted-foreground: oklch(0.48 0.03 260);
+  /* Muted */
+  --muted: oklch(0.93 0.015 255);
+  --muted-foreground: oklch(0.55 0.03 260);
 
-  /* Accent (controlled, not loud) */
-  --accent: oklch(0.70 0.14 300);
+  /* Accent (controlled) */
+  --accent: oklch(0.68 0.14 300);
   --accent-foreground: oklch(0.98 0.01 250);
 
-  --destructive: oklch(0.60 0.22 25);
+  /* Feedback */
+  --destructive: oklch(0.58 0.22 25);
 
-  --border: oklch(0.90 0.01 255);
-  --input: oklch(0.90 0.01 255);
+  /* Borders & Inputs (stronger for depth) */
+  --border: oklch(0.86 0.015 255);
+  --input: oklch(0.86 0.015 255);
 
-  --ring: oklch(0.64 0.18 250);
+  /* Focus */
+  --ring: oklch(0.62 0.18 250);
 }
 
-/* ================= DARK MODE (PRIMARY) ================= */
+/* ================= DARK MODE (UNCHANGED, STRONG) ================= */
 
 .dark {
   --background: oklch(0.12 0.03 260);
@@ -83,7 +92,7 @@
   --popover: oklch(0.16 0.03 260);
   --popover-foreground: oklch(0.98 0.01 250);
 
-  /* Brand blue (stable, no glow usage) */
+  /* Brand blue */
   --primary: oklch(0.66 0.17 250);
   --primary-foreground: oklch(0.12 0.04 260);
 
@@ -93,13 +102,12 @@
   --muted: oklch(0.22 0.03 260);
   --muted-foreground: oklch(0.72 0.02 260);
 
-  /* Accent purple — intentional, subtle */
+  /* Accent */
   --accent: oklch(0.68 0.15 300);
   --accent-foreground: oklch(0.12 0.04 260);
 
   --destructive: oklch(0.66 0.22 30);
 
-  /* Slightly stronger borders for depth */
   --border: oklch(0.30 0.02 260);
   --input: oklch(0.30 0.02 260);
 
@@ -117,3 +125,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ================= UTILITIES (LIGHT MODE POLISH) ================= */
+
+@layer utilities {
+  /* Subtle elevation for cards (light mode only) */
+  .card-shadow {
+    box-shadow:
+      0 1px 2px oklch(0 0 0 / 0.05),
+      0 8px 24px oklch(0 0 0 / 0.04);
+  }
+}
+
+/* ================= EXTRAS ================= */
+
+/* Text selection */
+::selection {
+  background: oklch(0.62 0.18 250 / 0.25);
+}
+

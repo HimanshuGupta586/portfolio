@@ -1,7 +1,18 @@
 import {
-  SiNextdotjs, SiReact, SiTailwindcss, SiMongodb, SiExpress,
-  SiNodedotjs, SiShadcnui, SiTypescript, SiHtml5, SiCss3,
-  SiJavascript, SiPython, SiC, SiGit
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiMongodb,
+  SiExpress,
+  SiNodedotjs,
+  SiShadcnui,
+  SiTypescript,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiPython,
+  SiC,
+  SiGit,
 } from "react-icons/si";
 
 export const SKILLS_DATA = {
@@ -18,18 +29,18 @@ export const SKILLS_DATA = {
     { name: "Python", icon: SiPython },
     { name: "C (DSA)", icon: SiC },
 
-    // Core & Frameworks
-    { name: "Next.js", icon: SiNextdotjs },
+    // Frameworks & Runtime
     { name: "React", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
     { name: "Node.js", icon: SiNodedotjs },
     { name: "Express.js", icon: SiExpress },
 
-    // Database & Backend
+    // Database
     { name: "MongoDB", icon: SiMongodb },
 
     // Styling & UI
-    { name: "TailwindCSS", icon: SiTailwindcss },
-    { name: "Shadcn UI", icon: SiShadcnui },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "shadcn/ui", icon: SiShadcnui },
 
     // Tools
     { name: "Git & GitHub", icon: SiGit },

@@ -1,60 +1,67 @@
 "use client";
 
-import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { Github, ExternalLink } from "lucide-react";
 import { PROJECTS_DATA } from "@/data/projects";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-32 px-6 max-w-6xl mx-auto">
+    <section id="projects" className="py-28 px-6">
+      <div className="max-w-6xl mx-auto">
 
-      {/* Heading */}
-      <h2 className="text-4xl font-bold text-center mb-16">
-        Featured <span className="text-primary">Projects</span>
-      </h2>
+        {/* Heading */}
+        <header className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Featured <span className="text-primary">Projects</span>
+          </h2>
+        </header>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {PROJECTS_DATA.map((project, i) => (
-          <ProjectCard key={i} project={project} />
-        ))}
+        {/* Grid */}
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS_DATA.map((project, i) => (
+            <ProjectCard key={i} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
 /* --------------------------------------------- */
-/*  CLEAN PROJECT CARD (GLOW-FREE)                */
+/* Project Card                                  */
 /* --------------------------------------------- */
 
-function ProjectCard({ project: p }: any) {
+function ProjectCard({ project: p }: { project: any }) {
   return (
-    <div
+    <article
       className="
         p-6 rounded-xl border border-border bg-card
-        cursor-pointer select-none
-        transition-transform duration-200
+        transition-all duration-200
         hover:scale-[1.02]
+        hover:shadow-md hover:shadow-primary/5
         active:scale-[0.98]
       "
     >
       {/* Thumbnail */}
-      <div className="relative w-full h-44 rounded-xl overflow-hidden mb-4">
+      <div className="relative w-full h-44 rounded-lg overflow-hidden mb-4">
         <Image
           src={p.img}
           alt={p.title}
           fill
-          className="object-cover transition-transform duration-200 hover:scale-105"
+          className="object-cover transition-transform duration-300 hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
 
-      {/* Text */}
+      {/* Content */}
       <h3 className="text-lg font-semibold mb-1">{p.title}</h3>
-      <p className="text-sm text-muted-foreground mb-3">
+
+      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
         {p.description}
       </p>
 
-      {/* Tech Tags */}
-      <div className="flex flex-wrap gap-2 mb-4 text-[0.70rem] font-medium">
+      {/* Tech Stack */}
+      <div className="flex flex-wrap gap-2 mb-5 text-[0.70rem] font-medium">
         {p.tech.map((t: string, i: number) => (
           <span
             key={i}
@@ -65,10 +72,8 @@ function ProjectCard({ project: p }: any) {
         ))}
       </div>
 
-      {/* Buttons */}
-      <div className="flex justify-between items-center">
-
-        {/* GitHub */}
+      {/* Actions */}
+      <div className="flex items-center justify-between">
         <a
           href={p.github}
           target="_blank"
@@ -83,7 +88,6 @@ function ProjectCard({ project: p }: any) {
           <Github size={16} /> Code
         </a>
 
-        {/* Live */}
         {p.link && (
           <a
             href={p.link}
@@ -100,6 +104,6 @@ function ProjectCard({ project: p }: any) {
           </a>
         )}
       </div>
-    </div>
+    </article>
   );
 }

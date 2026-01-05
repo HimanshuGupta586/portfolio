@@ -5,18 +5,19 @@ import type { ReactNode } from "react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border pt-14 pb-10 mt-28 px-6">
-
-      {/* Top Section */}
-      <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
+    <footer className="border-t border-border mt-28 px-6">
+      <div className="max-w-6xl mx-auto py-14 flex flex-col items-center gap-6">
 
         {/* Branding */}
-        <h3 className="text-xl font-semibold tracking-tight">
-          Himanshu Gupta <span className="text-primary">• Developer</span>
+        <h3 className="text-lg font-semibold tracking-tight">
+          Himanshu Gupta <span className="text-primary">• Full-Stack Developer</span>
         </h3>
 
         {/* Navigation */}
-        <nav className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+        <nav
+          aria-label="Footer navigation"
+          className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground"
+        >
           <FooterLink href="#about">About</FooterLink>
           <FooterLink href="#projects">Projects</FooterLink>
           <FooterLink href="#skills">Skills</FooterLink>
@@ -24,27 +25,28 @@ export default function Footer() {
           <FooterLink href="#timeline">Journey</FooterLink>
         </nav>
 
-        {/* Social Icons */}
+        {/* Socials */}
         <div className="flex gap-4 mt-2">
           <Social
             href="https://github.com/HimanshuGupta586"
+            label="GitHub"
             icon={<Github size={18} />}
           />
           <Social
             href="https://linkedin.com/in/himanshugupta586"
+            label="LinkedIn"
             icon={<Linkedin size={18} />}
           />
           <Social
             href="mailto:programmerhg001@email.com"
+            label="Email"
             icon={<Mail size={18} />}
           />
         </div>
-      </div>
 
-      {/* Bottom Text */}
-      <div className="text-center mt-10">
-        <p className="text-xs text-muted-foreground tracking-wide">
-          © {new Date().getFullYear()} Himanshu Gupta — Crafted with precision & passion.
+        {/* Copyright */}
+        <p className="text-xs text-muted-foreground tracking-wide text-center mt-6">
+          © {new Date().getFullYear()} Himanshu Gupta. Built with care and clarity.
         </p>
       </div>
     </footer>
@@ -75,20 +77,22 @@ function FooterLink({
 function Social({
   href,
   icon,
+  label,
 }: {
   href: string;
   icon: ReactNode;
+  label: string;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
       className="
-        p-2 rounded-full border border-border
-        flex items-center justify-center
-        transition-transform duration-200
-        hover:scale-105
+        p-2 rounded-md border border-border
+        transition-all duration-200
+        hover:border-primary hover:text-primary
         active:scale-95
       "
     >

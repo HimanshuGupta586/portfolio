@@ -1,31 +1,33 @@
+// /data/about.ts
+
 export const ABOUT_DATA = {
   heading: "About Me",
 
   bio: `
-    I’m Himanshu Gupta — a full-stack developer passionate about crafting smooth, intuitive 
-    and visually refined web experiences. I focus on clean architecture, meaningful 
-    motion, UI clarity, and building products that feel modern and immersive.
+    I’m Himanshu Gupta, a full-stack developer and computer science student.
+    I enjoy breaking down problems, understanding fundamentals, and building
+    web applications that are clean, reliable, and easy to maintain.
   `,
 
   infoCards: [
     {
       title: "Who I Am",
-      text: "A MERN & Next.js developer with a strong eye for detail, UX flow, and modern design.",
+      text: "A computer science student and full-stack developer with a strong focus on fundamentals and problem solving.",
     },
     {
       title: "What I Build",
-      text: "Full-stack web apps that are performant, scalable, elegant — powered by MERN, Next.js & clean engineering.",
+      text: "End-to-end web applications using MERN, Next.js, and Python, with an emphasis on clarity, performance, and scalability.",
     },
     {
       title: "How I Work",
-      text: "Minimal interfaces, purposeful animations, structured logic — every line of code should feel intentional.",
+      text: "I approach problems step by step, write intentional code, and continuously improve through practice and iteration.",
     },
   ],
 
   stats: [
-    { number: "4+", label: "Years Learning" },
     { number: "10+", label: "Projects Built" },
-    { number: "∞", label: "Ideas Growing" },
+    { number: "100+", label: "DSA Problems Solved" },
+    { number: "∞", label: "Learning Mindset" },
   ],
 
   buttons: {

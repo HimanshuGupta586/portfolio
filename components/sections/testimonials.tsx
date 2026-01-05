@@ -5,27 +5,33 @@ import { TESTIMONIALS_DATA } from "@/data/testimonials";
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-28 px-6 max-w-6xl mx-auto">
+    <section id="testimonials" className="py-28 px-6">
+      <div className="max-w-6xl mx-auto">
 
-      {/* Heading */}
-      <h2 className="text-4xl font-bold text-center mb-16">
-        Testimonials <span className="text-primary">✦</span>
-      </h2>
+        {/* Heading */}
+        <header className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Testimonials
+          </h2>
+        </header>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {TESTIMONIALS_DATA.map((item, i) => (
-          <TestimonialCard
-            key={i}
-            name={item.name}
-            text={item.text}
-          />
-        ))}
+        {/* Grid */}
+        <div className="grid gap-8 md:grid-cols-3">
+          {TESTIMONIALS_DATA.map((item, i) => (
+            <TestimonialCard
+              key={i}
+              name={item.name}
+              text={item.text}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );
 }
 
-/* ------------------ CARD COMPONENT ------------------ */
+/* ------------------ Testimonial Card ------------------ */
 
 function TestimonialCard({
   name,
@@ -35,26 +41,30 @@ function TestimonialCard({
   text: string;
 }) {
   return (
-    <div
+    <article
       className="
         p-6 rounded-xl border border-border bg-card
-        cursor-pointer select-none
-        transition-transform duration-200
+        transition-all duration-200
         hover:scale-[1.02]
+        hover:shadow-md hover:shadow-primary/5
         active:scale-[0.98]
       "
     >
       <div className="flex justify-center mb-4">
-        <MessageSquareQuote className="text-primary" size={28} />
+        <MessageSquareQuote
+          className="text-primary"
+          size={26}
+          aria-hidden
+        />
       </div>
 
       <p className="text-sm text-muted-foreground leading-relaxed mb-4 text-center">
         “{text}”
       </p>
 
-      <h4 className="font-semibold text-center text-[0.95rem] tracking-tight">
+      <p className="text-sm font-medium text-center">
         — {name}
-      </h4>
-    </div>
+      </p>
+    </article>
   );
 }
